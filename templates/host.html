@@ -1,0 +1,121 @@
+{% extends "index.html" %}
+
+{% block room_script %}{% endblock %}
+
+{% block socket_script %}
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+{% endblock %}
+
+{% block include_scripts %}
+<script src="/static/js/app.js" defer></script>
+<script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript" defer></script>
+<script src="/static/js/host.js" defer></script>
+{% endblock %}
+
+{% block YT_script %}
+<script type="text/javascript">
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var host = true;
+</script>
+{% endblock %}
+
+{% block navbar_brand %}
+  ijukebox.xyz/<code id="navbar-room-indicator">{{room_id}} </code>
+{% endblock %}
+
+{% block input_form %}
+<form autocomplete="off" id="youtube-search-form" action="." method="POST">
+  <div class="input-group">
+    <input type="text" name="text" id="search-text" class="form-control" placeholder="Search YouTube for music...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" id="search-submit-btn" onclick="searchYouTube();">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+</form>
+{% endblock %}
+
+{% block host_room_controls %}
+<div class="panel-body text-center">
+  <button type="button" class="btn btn-default" title="Skip Track" onclick="hostSkipVideo()">
+    <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default host-priority-cntrl-btn" title="Repeat All" onclick="hostToggleLoopAll()">
+    <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+  </button>
+  <button type="button" class="btn btn-default host-priority-cntrl-btn" title="Shuffle" onclick="hostToggleShuffle()">
+    <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+  </button>
+</div>
+{% endblock %}
+
+{% block video_player %}
+<div class="video-container">
+  <div id="player"></div>
+</div>
+{% endblock %}
+
+{% block info_container %}{% endblock %}
+
+{% block host_control_btns %}
+<div class="row host-cntrls">
+  <div class="text-right">
+    <button type="button" class="btn btn-default" title="Play Now" onclick="hostPlayNow($(this))">
+      <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" title="Skip to Front" onclick="hostSkipToFront($(this))">
+      <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-default" id="rt-mrgn" title="Remove Video" onclick="hostRemoveFromQueue($(this))">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block search_results %}
+<div class="row" id="search-results-container">
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Search Results</h3>
+    </div>
+    <div class="list-group" id="search-results"></div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block video_now_playing %}
+
+{% endblock %}
+
+{% block video_queue %}
+<div class="row">
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Up Next</h3>
+    </div>
+    <div id="empty-queue-msg" class="panel-body text-center">
+      <h4>The playlist is currently empty. Search for a song above!</h4>
+    </div>
+    <div class="list-group" id="video-queue"></div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block welcome %}
+<div class="col-md-12">
+<h3>Host of room:
+  <code>ijukebox.xyz/{{room_id}}</code>
+</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,187 @@
+/* Space out content a bit */
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  background-color: whitesmoke;  /*TODO: decide whether to apply bg color here */
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+}
+
+code {
+  background-color: transparent;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.host-priority-cntrl-btn.btn-on {
+  background-color: #31b0d5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 854px;
+  }
+  #player {
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border: 1px solid #e5e5e5;
+}
+.jumbotron {
+  padding: 14px 24px;
+  padding-bottom: 30px;
+  font-size: 21px;
+  background-color: white;
+}
+
+.form-control {
+  font-size: 16px;
+}
+
+/*
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 20px;
+}*/
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+
+textarea{
+    width: 100%;
+}
+
+#player {
+  width: 100%;
+}
+
+#rt-mrgn {
+  margin-right: 5px;
+}
+
+.navbar-default {
+  background-color: white;
+}
+
+/*
+#navbar-room {
+  color: #c7254e;
+}*/
+
+#navbar-room-indicator {
+  padding-left: 0px;
+}
+
+#search-results-container {
+  display: none;
+}
+
+.panel-group .panel-heading {
+  border-bottom: 1px solid #ddd;
+}
+
+#empty-queue-msg {
+  color: #c7254e;
+  background-color: #f9f2f4;
+}
+
+#now-playing-video>.list-group-item {
+    background-color: #5f9ea0;
+    color: white;
+}
+
+/*
+.panel-body {
+  color: #c7254e;
+  background-color: #f9f2f4;
+}*/
+
+.media {
+  margin-top: 0px;
+}
+
+a {
+  color: #5f9ea0;
+}
+
+a.no-ul {
+  text-decoration: none;
+}
+
+/* video-container styling thanks to: http://coolestguidesontheplanet.com/videodrome/youtube/ */
+.video-container {
+  display: none;  /*TODO::possibly instead, get rid of and use space for placeholder */
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+  margin-bottom: 10px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect
+  .jumbotron {
+    border-bottom: 0;
+  }*/
+}

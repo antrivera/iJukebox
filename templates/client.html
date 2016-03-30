@@ -1,0 +1,54 @@
+{% extends "host.html" %}
+{% block include_scripts %}
+<script src="/static/js/app.js" defer></script>
+<script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript" defer></script>
+<script src="/static/js/client.js" defer></script>
+{% endblock %}
+
+{% block YT_script %}
+<script type="text/javascript">
+  //TODO:: possibly better use of flask inheritance
+
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var host = false;
+</script>
+{% endblock %}
+
+{% block host_room_controls %}{% endblock %}
+{% block host_control_btns %}{% endblock %}
+
+{% block video_now_playing %}
+<div class="row">
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Now Playing</h3>
+    </div>
+    <div id="nothing-playing-msg" class="panel-body text-center">
+      <h4>Nothing currently playing. Search for a song above to get started!</h4>
+    </div>
+    <div class="list-group" id="now-playing-video"></div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block client_refresh_btn %}
+<div class="navbar-header pull-right">
+  <button type="button" class="btn btn-default navbar-btn" onclick="onGuestLoad()">
+    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+  </button>
+</div>
+{% endblock %}
+
+{% block welcome %}
+<div class="col-md-12">
+<h3>Welcome! Now sharing to room:
+  <code>ijukebox.xyz/{{room_id}}</code>
+</h3>
+</div>
+{% endblock %}
